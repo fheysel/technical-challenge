@@ -1,11 +1,18 @@
-from time import process_time
+from time import time, sleep
 from Graph import Graph
 
 def main(G):
-    start = process_time()
+    start = time()
+    G.calc_mst()
     G.calc_path()
-    end = process_time()
-    print(f'Path of graph is {G.path}. Processing time is {end - start} seconds.')
+
+    # Without a sleep, the function runs too fast to accurately measure processing time
+    # and always displays 0.0 runtime. By adding a 1 second delay and then subtracting
+    # its affect in the elapsed variable calculation we can get a reading on the runtime
+    sleep(1) 
+
+    elapsed = time() - start - 1
+    print(f'Path of graph is {G.path}. Processing time is {elapsed} seconds.')
 
 def test():
     G = Graph(10)
