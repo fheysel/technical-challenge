@@ -28,7 +28,7 @@ Given more time to work on the problem I would make the following improvements t
 Other algorithms considered during the development process are:
 1. Brute force. Due to the small verticy limit of 20 verticies max, checking all pat permutations and selecting the least cost solution would have been able to execute in milisecond-level time. However, this solution was not selected in order to build in scalability to the solution and demonstrate good domain knowledge.
 2. Using Kruskal's MST algorithm instead of Prim's. Not selected as Kruskal's performs best in sparse graphs, in a fully connected graph Prim's should perform better.
-3. Several non-polynomial time exact algorithms were considered but not selected in order to keep the final solution operating in polynomial time. These algorithms include:
+3. Several non-polynomial time algorithms were considered but not selected. These algorithms include:
   * Least-cost branch and bound 
   * Dynamic programming
   * Naive greedy algorithm
