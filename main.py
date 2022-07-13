@@ -1,18 +1,9 @@
 from time import time, sleep
 from Graph import Graph
 
-def main(G):
-    start = time()
-    G.calc_mst()
-    G.calc_path()
-
-    # Without a sleep, the function runs too fast to accurately measure processing time
-    # and always displays 0.0 runtime. By adding a 1 second delay and then subtracting
-    # its affect in the elapsed variable calculation we can get a reading on the runtime
-    sleep(1) 
-
-    elapsed = time() - start - 1
-    print(f'Path of graph is {G.path}. Processing time is {elapsed} seconds.')
+def main():
+    test()
+    test1()
 
 def test():
     G = Graph(10)
@@ -28,7 +19,39 @@ def test():
                [7.0,  1.0,  11.5, 1.1,  11.6, 8.5,  9.3,  12.4, 1.1,  0.0]]
 
 
-    main(G)
+    start = time()
+    G.calc_mst()
+    G.calc_path()
+    G.calc_cost()
+
+    # Without a 1sec sleep, the function runs too fast to accurately measure processing time
+    # and will display a 0 sec (even when tested with nano-second time function) runtime. 
+    # By adding a 1 second delay and then subtracting its affect in the elapsed variable 
+    # calculation we can get a reading on the runtime.
+    sleep(1) 
+
+    elapsed = time() - start - 1 # subtract one to remove sleep impact
+    print(f'Path of Graph 1 is {G.path}, the cost of the path is {G.cost}. Processing time is {elapsed} seconds.')
+
+
+def test1():
+    G = Graph(6)
+    G.graph = [[0,  16, 47, 72, 77, 79],
+               [16, 0, 37, 57, 65, 66],
+               [47, 37, 0, 40, 30, 35],
+               [72, 57, 40, 0, 31, 23],
+               [77, 65, 30, 31, 0, 10],
+               [79, 66, 35, 23, 10, 0]]
+
+
+    start = time()
+    G.calc_mst()
+    G.calc_path()
+    G.calc_cost()
+    sleep(1) 
+
+    elapsed = time() - start - 1 # subtract one to remove sleep impact
+    print(f'Path of Graph 2 is {G.path}, the cost of the path is {G.cost}. Processing time is {elapsed} seconds.')
     
      
-test()
+main()
