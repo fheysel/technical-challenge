@@ -8,7 +8,7 @@ The overall logical flow of the algorithm is as follows:
 1. Calculate the graph's Minimum Spanning Tree (MST) using Prim's algorithm
 2. Convert the MST into a path by performing a pre-order traversal through the tree.
 
-This solution is proven to be a 2-approximate of the optimal solution and is proven [here](https://www.geeksforgeeks.org/travelling-salesman-problem-set-2-approximate-using-mst/)
+This solution is proven to be a 2-approximate of the optimal solution [here](https://www.geeksforgeeks.org/travelling-salesman-problem-set-2-approximate-using-mst/)
   
 ## Assumptions
 1. All distances in the graph are positive floats or integers
