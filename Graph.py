@@ -5,10 +5,11 @@ class Graph:
         self.vertices = vertices # Number of vertices in graph
         self.graph = [[0 for i in range(vertices)] for j in range(vertices)] # Empty distance matrix
         self.mst = [] # Minimum spanning tree of graph
-        self.path = [] # Final path for 
+        self.path = [] # List of order in which vertices are visited
         self.cost = None
 
     def calc_cost(self):
+        # Calculate cost of the final path by adding up the individual edge weights
         self.cost = 0
         i = 0 
         for i in range(self.vertices - 1):
@@ -17,9 +18,9 @@ class Graph:
     def calc_path(self):
         # Calculate the path by doing a pre-order traversal of the MST
 
-        # I'd like to note that this is a rather hack-y way of doing tree traversal.
-        # Because the MST is stored as parent-child pairs in depth first order list it does work,
-        # however it wouldn't scale well to larger datasets. If in a production system I would 
+        # I'd like to note that this is a pretty hack-y way of doing tree traversal.
+        # Because the MST is stored as parent-child pairs in depth first order list it works,
+        # but it wouldn't scale well to larger datasets. If in a production system I would 
         # use a Tree data-structure library to store and traverse the tree. For the purposes of 
         # the challenge I chose not to import an external library as I am delivering code source
         # only and not a docker container and didn't want to run into dependancy errors when others
